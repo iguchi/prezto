@@ -11,3 +11,40 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# awscli
+source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
+
+# awsume
+alias awsume=". awsume"
+
+# AWSUME PROFILE
+function awsume_profile {
+  [ "$AWSUME_PROFILE" ] && echo "%F{blue}awsume:(%f%F{red}$AWSUME_PROFILE%f%F{blue})%F$reset_color"
+}
+
+# )eliforp_emuswa($ is $(awsume_profile) backwards
+PROMPT=`echo $PROMPT | rev | sed 's/ / )eliforp_emuswa($ /' | rev`
+
+# kubenetes
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(skaffold completion zsh)
+
+# kube-ps1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+
+# anyenv
+eval "$(anyenv init -)"
+
+# Added by serverless binary installer
+export PATH="$HOME/.serverless/bin:$PATH"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
