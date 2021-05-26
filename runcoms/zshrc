@@ -17,9 +17,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # awscli
 source /usr/local/share/zsh/site-functions/aws_zsh_completer.sh
 
-# awsume
-alias awsume=". awsume"
-
 # AWSUME PROFILE
 function awsume_profile {
   [ "$AWSUME_PROFILE" ] && echo "%F{blue}awsume:(%f%F{red}$AWSUME_PROFILE%f%F{blue})%F$reset_color"
