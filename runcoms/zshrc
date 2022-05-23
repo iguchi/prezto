@@ -37,6 +37,9 @@ PS1='$(kube_ps1)'$PS1
 # anyenv
 eval "$(anyenv init -)"
 
+# https://github.com/pyenv/pyenv/issues/106#issuecomment-94921352
+alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
