@@ -37,6 +37,9 @@ PS1='$(kube_ps1)'$PS1
 # anyenv
 eval "$(anyenv init -)"
 
+# PHP
+export PATH="/usr/local/opt/php@7.0/bin:/usr/local/opt/php@7.0/sbin:$PATH"
+
 # https://github.com/pyenv/pyenv/issues/106#issuecomment-94921352
 alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 
