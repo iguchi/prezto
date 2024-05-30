@@ -43,6 +43,9 @@ export PATH="/usr/local/opt/php@7.0/bin:/usr/local/opt/php@7.0/sbin:$PATH"
 # https://github.com/pyenv/pyenv/issues/106#issuecomment-94921352
 alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 
+# Copilot in the CLI
+eval "$(gh copilot alias -- zsh)"
+
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 
